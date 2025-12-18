@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# Task Flow – Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Task Flow is a web-based task management application that allows users to manage projects and tasks efficiently. The frontend is built with **React** and provides a clean, responsive, and interactive user experience.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### Authentication
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* User registration and login
+* JWT-based authentication
+* Protected routes
+* Logout functionality
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Dashboard
 
-### `npm test`
+* View all projects created by the user
+* Search projects by title or description
+* Create projects using a modal
+* Delete projects with confirmation
+* Graceful empty states
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Project Management
 
-### `npm run build`
+* View project details
+* Task list grouped by status (Kanban style)
+* Drag & drop tasks to update status
+* Search tasks by title and description
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Task Management
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Create, edit, and delete tasks
+* Task status: **Pending** and **Completed**
+* Description word limits and validation
+* Optimistic UI updates
+* Confirmation before deletion
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### UI & UX
 
-### `npm run eject`
+* Responsive design (mobile, tablet, desktop)
+* Tailwind CSS for styling
+* Toast notifications for feedback
+* Loaders for async actions
+* Modals with controlled closing behavior
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Error Handling
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Route-level 404 page
+* Data-level fallback for invalid project IDs
+* Global error boundary to prevent blank screens
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Tech Stack
 
-## Learn More
+* **React (Vite)**
+* **React Router DOM**
+* **Axios**
+* **Tailwind CSS**
+* **react-hot-toast**
+* **@dnd-kit (Drag & Drop)**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Environment Setup
 
-### Code Splitting
+### Clone the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+mkidir task-flow-frontend
+cd task-flow-frontend
+git clone 
 
-### Analyzing the Bundle Size
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Install dependencies
 
-### Making a Progressive Web App
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 3️Create environment file
 
-### Advanced Configuration
+Create a `.env` file in the root directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000  (in my case)
+```
 
-### Deployment
+> Make sure the backend server is running before starting the frontend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Run the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Test Scenarios
+
+* Invalid routes display a custom 404 page
+* Invalid project IDs show a fallback message with navigation
+* Forms validate required fields
+* Modals do not close on outside click
+* Toast messages appear for success and failure states
+
+---
+
+## Project Structure (Simplified)
+
+```
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── Modal.jsx
+│   ├── ErrorBoundary.jsx
+│   └── ...
+├── pages/
+│   ├── Login.jsx
+│   ├── Register.jsx
+│   ├── Dashboard.jsx
+│   ├── ProjectDetail.jsx
+│   └── NotFound.jsx
+├── services/
+│   └── api.js
+├── utils/
+│   └── helpers.js
+└── main.jsx
+```
+
+---
