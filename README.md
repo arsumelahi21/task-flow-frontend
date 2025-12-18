@@ -70,7 +70,7 @@ Task Flow is a web-based task management application that allows users to manage
 ```bash
 mkidir task-flow-frontend
 cd task-flow-frontend
-git clone 
+git clone https://github.com/arsumelahi21/task-flow-frontend.git
 
 ```
 
